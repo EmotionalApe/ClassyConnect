@@ -22,79 +22,79 @@ class ClassyConnect(App):
 		
 		#greetingText
 		self.greetingText = Label(
-														text="Hey! What's your Batch?", 
-														font_size=18,
-														color="00FFCE"
-														)
+								text="Hey! What's your Batch?", 
+								font_size=18,
+								color="00FFCE"
+								)
 		self.window.add_widget(self.greetingText)
 		
 		#input
 		self.batchInput=TextInput(
-														multiline=False,
-														padding_y=(5,5), 
-														padding_x=(150, 30),
-														size_hint=(0.5,0.8),
-														font_size=18,
-														)
+								multiline=False,
+								padding_y=(5,5), 
+								padding_x=(150, 30),
+								size_hint=(0.5,0.8),
+								font_size=18,
+								)
 		self.window.add_widget(self.batchInput)
 		
 		
 		#button
 		self.nextClassButton = Button(
-														text="Show next class",
-														size_hint=(1,1),
-														bold=True,
-														background_color="#00FCE",
-														font_size=18
-														)
+									text="Show next class",
+									size_hint=(1,1),
+									bold=True,
+									background_color="#00FCE",
+									font_size=18
+									)
 		self.nextClassButton.bind(on_press = self.logic)
 		self.window.add_widget(self.nextClassButton)
 		
 		#clearbutton
 		self.clearButton = Button(
-														text="Clear",
-														size_hint=(1,0.7),
-														bold=True,
-														background_color="#f50505",
-														)
+								text="Clear",
+								size_hint=(1,0.7),
+								bold=True,
+								background_color="#f50505",
+								)
 		self.clearButton.bind(on_press = self.clearFunc)
 		self.window.add_widget(self.clearButton)
 		
 		#SubjectText
 		self.subText = Label(
-														text="", 
-														font_size=17,
-														color="00FFCE",
-														size_hint=(0.5,0.5)
-														)
+							text="", 
+							font_size=17,
+							color="00FFCE",
+							size_hint=(0.5,0.5)
+							)
 		self.window.add_widget(self.subText)
 		
 		#TimeText
 		self.timeText = Label(
-														text="", 
-														font_size=17,
-														color="00FFCE",
-														size_hint=(0.5,0.5)
-														)
+							text="", 
+							font_size=17,
+							color="00FFCE",
+							size_hint=(0.5,0.5)
+							)
 		self.window.add_widget(self.timeText)
 		
 		#locationText
 		self.locText = Label(
-														text="", 
-														font_size=17,
-														color="00FFCE",
-														size_hint=(0.5,0.5)
-														)
+							text="", 
+							font_size=17,
+							color="00FFCE",
+							size_hint=(0.5,0.5)
+							)
 		self.window.add_widget(self.locText)
 		
 		
 		return self.window
 	
 	def clearFunc(self, event) : 
-		self.subText.text = "Subject  :  "
-		self.locText.text = "Class  :  "
-		self.timeText.text = "Time  :  " 
-		
+		self.subText.text = ""
+		self.locText.text = ""
+		self.timeText.text = "" 
+		self.batchInput.text = ""
 		
 	
 	def logic(self, event) :
@@ -154,14 +154,9 @@ class ClassyConnect(App):
 							self.subText.text = "Subject  :  " + cName 
 							self.locText.text = "Class  :  " + cLoc
 							self.timeText.text = "Time  :  " + cTime
-							
-							self.batchInput.text = ""
+						
 							cnt=cnt+1
 							
-						elif (curTime>cTime) :
-							self.subText.text = "Subject  :  " 
-							self.locText.text = "Class  :  "
-							self.timeText.text = "Time  :  "
 							
 
 obj = ClassyConnect()
